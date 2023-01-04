@@ -12,6 +12,7 @@
 		1C7230C22965B2980052BFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7230C12965B2980052BFA5 /* Assets.xcassets */; };
 		1C7230C52965B2980052BFA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7230C42965B2980052BFA5 /* Preview Assets.xcassets */; };
 		1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230CC2965B2B50052BFA5 /* AppleSystemStatus.swift */; };
+		1C7230D82965C7760052BFA5 /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D72965C7760052BFA5 /* Image+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		1C7230C42965B2980052BFA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C7230C62965B2980052BFA5 /* AppleSystemStatusMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleSystemStatusMenuBar.entitlements; sourceTree = "<group>"; };
 		1C7230CC2965B2B50052BFA5 /* AppleSystemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSystemStatus.swift; sourceTree = "<group>"; };
+		1C7230D72965C7760052BFA5 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		1C7230CF2965C3E90052BFA5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1C7230D72965C7760052BFA5 /* Image+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
+				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* ContentView.swift in Sources */,
 				1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */,
 			);
