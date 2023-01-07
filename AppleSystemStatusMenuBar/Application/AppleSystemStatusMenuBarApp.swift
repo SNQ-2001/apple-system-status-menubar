@@ -11,7 +11,7 @@ import SwiftUI
 struct AppleSystemStatusMenuBarApp: App {
     var body: some Scene {
         MenuBarExtra {
-            ContentView()
+            ContentView(viewModel: AppViewModel(repository: AppleRepositoryImpl()))
         } label: {
             Image(systemName: "apple.logo")
         }

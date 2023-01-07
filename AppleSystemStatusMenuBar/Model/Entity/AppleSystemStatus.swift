@@ -14,14 +14,8 @@ struct AppleSystemStatus: Codable {
 
 // MARK: - Service
 struct Service: Codable {
-    let redirectURL: String
     let events: [Event]
     let serviceName: String
-
-    enum CodingKeys: String, CodingKey {
-        case redirectURL = "redirectUrl"
-        case events, serviceName
-    }
 }
 
 // MARK: - Event

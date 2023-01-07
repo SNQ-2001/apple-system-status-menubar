@@ -9,27 +9,15 @@ import Foundation
 import SwiftUI
 
 struct Endpoint {
-    let scheme: String
     let host: String
     let path: String
     let queryItems: [URLQueryItem]
 }
 
 extension Endpoint {
-    static func systemstatus() -> Endpoint {
-        Endpoint(
-            scheme: "https",
-            host: "www.apple.com",
-            path: "/support/systemstatus/data/system_status_en_EM.js",
-            queryItems: []
-        )
-    }
-}
-
-extension Endpoint {
     var url: URL? {
         var components = URLComponents()
-        components.scheme = scheme
+        components.scheme = "https"
         components.host = host
         components.path = path
         components.queryItems = queryItems

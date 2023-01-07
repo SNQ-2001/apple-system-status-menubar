@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    @StateObject var viewModel: AppViewModel
+
+    init(viewModel: AppViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,11 +23,8 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        .onAppear {
+            viewModel.getAppleSystemStatus()
+        }
     }
 }

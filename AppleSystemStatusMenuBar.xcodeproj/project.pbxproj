@@ -15,6 +15,8 @@
 		1C7230D82965C7760052BFA5 /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D72965C7760052BFA5 /* Image+.swift */; };
 		1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D92965CB360052BFA5 /* APIClient.swift */; };
 		1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230DB2965CB410052BFA5 /* Endpoint.swift */; };
+		1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */; };
+		1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1C7230D72965C7760052BFA5 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
 		1C7230D92965CB360052BFA5 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1C7230DB2965CB410052BFA5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
+		1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 		1C7230D12965C4070052BFA5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 		1C7230D62965C4F60052BFA5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -223,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */,
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
+				1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */,
 				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* ContentView.swift in Sources */,
 				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
