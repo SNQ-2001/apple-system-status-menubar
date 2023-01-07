@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Image {
-    static let circle = Image(systemName: "circle.fill")
-    static let triangle = Image(systemName: "triangle.fill")
-    static let diamond = Image(systemName: "diamond.fill")
+    static let circle = Image(systemName: "circle.fill") // 緑色
+    static let triangle = Image(systemName: "triangle.fill") // 赤色
+    static let diamond = Image(systemName: "diamond.fill") // 黄色
 }

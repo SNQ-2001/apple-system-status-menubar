@@ -13,6 +13,8 @@
 		1C7230C52965B2980052BFA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7230C42965B2980052BFA5 /* Preview Assets.xcassets */; };
 		1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230CC2965B2B50052BFA5 /* AppleSystemStatus.swift */; };
 		1C7230D82965C7760052BFA5 /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D72965C7760052BFA5 /* Image+.swift */; };
+		1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D92965CB360052BFA5 /* APIClient.swift */; };
+		1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230DB2965CB410052BFA5 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		1C7230C62965B2980052BFA5 /* AppleSystemStatusMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleSystemStatusMenuBar.entitlements; sourceTree = "<group>"; };
 		1C7230CC2965B2B50052BFA5 /* AppleSystemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSystemStatus.swift; sourceTree = "<group>"; };
 		1C7230D72965C7760052BFA5 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
+		1C7230D92965CB360052BFA5 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		1C7230DB2965CB410052BFA5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 		1C7230D52965C4F10052BFA5 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1C7230D92965CB360052BFA5 /* APIClient.swift */,
+				1C7230DB2965CB410052BFA5 /* Endpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
 				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* ContentView.swift in Sources */,
+				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
+				1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */,
 				1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +362,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,6 +390,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

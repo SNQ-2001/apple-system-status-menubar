@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct AppleSystemStatusMenuBarApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra {
             ContentView()
+        } label: {
+            Image(systemName: "apple.logo")
         }
+        .menuBarExtraStyle(.window)
     }
 }
