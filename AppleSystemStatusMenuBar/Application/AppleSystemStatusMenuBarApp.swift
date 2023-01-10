@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct AppleSystemStatusMenuBarApp: App {
     var body: some Scene {
+        WindowGroup(id: "0011") {
+            SettingView()
+        }
+
         MenuBarExtra {
             ContentView(viewModel: AppViewModel(repository: AppleRepositoryImpl()))
         } label: {

@@ -14,7 +14,7 @@ struct AppleSystemStatus: Codable {
 
 // MARK: - Service
 struct Service: Codable {
-    let events: [Event]
+    var events: [Event]? = nil
     let serviceName: String
 }
 

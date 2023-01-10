@@ -11,4 +11,6 @@ extension Image {
     static let circle = Image(systemName: "circle.fill") // 緑色
     static let triangle = Image(systemName: "triangle.fill") // 赤色
     static let diamond = Image(systemName: "diamond.fill") // 黄色
+
+    static let slider = Image(systemName: "slider.horizontal.3") // 環境設定
 }
