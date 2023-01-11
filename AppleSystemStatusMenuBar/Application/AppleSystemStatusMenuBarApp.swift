@@ -9,16 +9,17 @@ import SwiftUI
 
 @main
 struct AppleSystemStatusMenuBarApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
-        WindowGroup(id: "0011") {
-            SettingView()
-        }
-
         MenuBarExtra {
-            ContentView(viewModel: AppViewModel(repository: AppleRepositoryImpl()))
+            ContentView(viewModel: AppViewModel(repository: AppleRepositoryImpl()), delegate: delegate)
         } label: {
             Image(systemName: "apple.logo")
         }
         .menuBarExtraStyle(.window)
+
+        Settings {
+            SettingView()
+        }
     }
 }

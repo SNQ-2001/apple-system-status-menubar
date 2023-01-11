@@ -10,9 +10,11 @@ import Combine
 
 struct ContentView: View {
     @StateObject var viewModel: AppViewModel
+    @ObservedObject var delegate: AppDelegate
     @State var isHover: Bool = false
-    init(viewModel: AppViewModel) {
+    init(viewModel: AppViewModel, delegate: AppDelegate) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self.delegate = delegate
     }
     var body: some View {
         NavigationStack {
@@ -37,7 +39,7 @@ struct ContentView: View {
                     self.isHover = hovering
                 }
                 .onTapGesture {
-                    // 環境設定を開く
+                    delegate.openPreferences()
                 }
             }
             .navigationTitle("Apple System Status")
