@@ -73,6 +73,7 @@
 				1C7230D12965C4070052BFA5 /* ViewModel */,
 				1C7230D02965C3FF0052BFA5 /* Model */,
 				1C7230CF2965C3E90052BFA5 /* Extension */,
+				1CC98B67296DC15F002F7564 /* Plugin */,
 				1C7230CE2965C3D80052BFA5 /* Resource */,
 				1C7230C32965B2980052BFA5 /* Preview Content */,
 			);
@@ -171,6 +172,13 @@
 				1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		1CC98B67296DC15F002F7564 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Plugin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

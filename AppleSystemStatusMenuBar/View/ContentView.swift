@@ -14,7 +14,6 @@ struct ContentView: View {
     init(viewModel: AppViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
-    @Environment(\.openWindow) private var openWindow
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -38,7 +37,7 @@ struct ContentView: View {
                     self.isHover = hovering
                 }
                 .onTapGesture {
-                    openWindow(id: "0011")
+                    // 環境設定を開く
                 }
             }
             .navigationTitle("Apple System Status")
