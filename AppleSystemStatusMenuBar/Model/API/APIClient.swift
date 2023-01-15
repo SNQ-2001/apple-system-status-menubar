@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-// TODO: あああ
 class APIClient {
     static func fetch<T>(url: URL) -> AnyPublisher<T, Error> where T: Decodable {
         URLSession.shared.dataTaskPublisher(for: url)

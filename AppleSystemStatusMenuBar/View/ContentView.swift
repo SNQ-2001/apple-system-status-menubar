@@ -10,14 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel: AppViewModel
+
     @ObservedObject var delegate: AppDelegate
-    @State var isHover: Bool = false
+
     init(viewModel: AppViewModel, delegate: AppDelegate) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.delegate = delegate
     }
 
-    // TODO: dddd
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -26,23 +26,14 @@ struct ContentView: View {
                 }
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
 
-                Label {
-                    Text("環境設定")
-                        .foregroundColor(isHover ? .blue : .primary)
-                        .font(.system(size: 11, weight: .medium, design: .default))
-                } icon: {
-                    Image.slider
-                        .foregroundColor(isHover ? .blue : .primary)
-                        .font(.system(size: 11, weight: .medium, design: .default))
+                HStack(spacing: 0) {
+                    settingsButton()
+
+                    Spacer()
+
+                    quitButton()
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.all, 5)
-                .onHover { hovering in
-                    self.isHover = hovering
-                }
-                .onTapGesture {
-                    delegate.openPreferences()
-                }
+                .padding(.all, 7)
             }
             .navigationTitle("Apple System Status")
         }
@@ -56,5 +47,37 @@ struct ContentView: View {
             Image.circle
         }
         .labelStyle(.list(iconColor: .green))
+    }
+
+    private func settingsButton() -> some View {
+        Label {
+            Text("環境設定")
+                .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
+                .font(.system(size: 11, weight: .medium, design: .default))
+        } icon: {
+            Image.slider
+                .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
+                .font(.system(size: 11, weight: .medium, design: .default))
+        }
+        .onHover { hovering in
+            viewModel.isSettingsButtonHover = hovering
+        }
+        .onTapGesture {
+            delegate.openPreferences()
+        }
+    }
+
+    private func quitButton() -> some View {
+        Label {
+            Text("終了")
+                .foregroundColor(viewModel.isQuitButtonHover ? .blue : .primary)
+                .font(.system(size: 11, weight: .medium, design: .default))
+        } icon: {}
+            .onHover { hovering in
+                viewModel.isQuitButtonHover = hovering
+            }
+            .onTapGesture {
+                viewModel.quit()
+            }
     }
 }

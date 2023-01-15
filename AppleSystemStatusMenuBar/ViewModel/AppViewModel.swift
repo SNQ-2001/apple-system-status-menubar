@@ -12,6 +12,8 @@ import Foundation
 final class AppViewModel: ObservableObject {
     @Published var appleSystemStatus: AppleSystemStatus = .init(services: [])
     @Published var searchText: String = ""
+    @Published var isSettingsButtonHover: Bool = false
+    @Published var isQuitButtonHover: Bool = false
 
     private let repository: AppleRepository
 
@@ -38,7 +40,12 @@ final class AppViewModel: ObservableObject {
 
     private func getAppleSystemStatus() {
         repository.fetchAppleSystemStatus()
+            .receive(on: DispatchQueue.main)
             .replaceError(with: .init(services: []))
             .assign(to: &$appleSystemStatus)
+    }
+
+    func quit() {
+        NSApplication.shared.terminate(nil)
     }
 }

@@ -286,6 +286,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\ncp $SRCROOT/.swiftlint.yml ./\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config .swiftlint.yml\nrm .swiftlint.yml\n";
+			showEnvVarsInLog = 0;
 		};
 		1CE8796829731D7200467930 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -304,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftFormat \\\n--product swiftformat\n\ncp $SRCROOT/.swiftformat ./\n.build/checkouts/SwiftFormat/.build/release/swiftformat $SRCROOT --config .swiftformat\nrm .swiftformat\n";
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftFormat \\\n--product swiftformat\n\ncp $SRCROOT/.swiftformat ./\n.build/checkouts/SwiftFormat/.build/release/swiftformat $SRCROOT --config .swiftformat --swiftversion 5.7\nrm .swiftformat\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
