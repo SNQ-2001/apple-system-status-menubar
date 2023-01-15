@@ -95,5 +95,6 @@ UserInterfaceState.xcuserstate
 
 BuildTools/.build
 BuildTools/.swiftpm
+BuildTools/Package.resolved
 
 *.swp
