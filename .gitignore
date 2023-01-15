@@ -93,8 +93,4 @@ UserInterfaceState.xcuserstate
 
 .DS_Store
 
-BuildTools/.build
-BuildTools/.swiftpm
-BuildTools/Package.resolved
-
 *.swp
