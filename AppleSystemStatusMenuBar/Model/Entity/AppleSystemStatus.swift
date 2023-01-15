@@ -8,17 +8,20 @@
 import Foundation
 
 // MARK: - AppleSystemStatus
+
 struct AppleSystemStatus: Codable {
     let services: [Service]
 }
 
 // MARK: - Service
+
 struct Service: Codable {
-    var events: [Event]? = nil
+    var events: [Event]?
     let serviceName: String
 }
 
 // MARK: - Event
+
 struct Event: Codable {
     let usersAffected: String
     let epochStartDate, epochEndDate: Int
@@ -39,8 +42,8 @@ struct Event: Codable {
 }
 
 enum EventStatus: String, Codable {
-    case resolved = "resolved"
-    case completed = "completed"
+    case resolved
+    case completed
 }
 
 enum StatusType: String, Codable {

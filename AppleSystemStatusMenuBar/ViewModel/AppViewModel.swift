@@ -14,7 +14,7 @@ final class AppViewModel: ObservableObject {
     @Published var searchText: String = ""
 
     private let repository: AppleRepository
-    
+
     private var cancellable = Set<AnyCancellable>()
 
     var searchServiceResults: [Service] {

@@ -9,7 +9,7 @@ import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var settingsWindow: NSWindow? {
-        return NSApp.windows.first(where: { window in
+        NSApp.windows.first(where: { window in
             window.frameAutosaveName == "com_apple_SwiftUI_Settings_window"
         })
     }

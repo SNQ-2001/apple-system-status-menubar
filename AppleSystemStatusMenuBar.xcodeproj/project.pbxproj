@@ -75,7 +75,6 @@
 				1C7230D12965C4070052BFA5 /* ViewModel */,
 				1C7230D02965C3FF0052BFA5 /* Model */,
 				1C7230CF2965C3E90052BFA5 /* Extension */,
-				1CC98B67296DC15F002F7564 /* Plugin */,
 				1C7230CE2965C3D80052BFA5 /* Resource */,
 				1C7230C32965B2980052BFA5 /* Preview Content */,
 			);
@@ -177,13 +176,6 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		1CC98B67296DC15F002F7564 /* Plugin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Plugin;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,12 +186,17 @@
 				1C7230B62965B2950052BFA5 /* Sources */,
 				1C7230B72965B2950052BFA5 /* Frameworks */,
 				1C7230B82965B2950052BFA5 /* Resources */,
+				1C867B1A29730C5B000D1CF4 /* Build Release */,
+				1CB647E829700F8C009BBCA6 /* Run SwiftLint */,
+				1CE8796829731D7200467930 /* Run SwiftFormat */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AppleSystemStatusMenuBar;
+			packageProductDependencies = (
+			);
 			productName = AppleSystemStatusMenuBar;
 			productReference = 1C7230BA2965B2950052BFA5 /* AppleSystemStatusMenuBar.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +225,8 @@
 				Base,
 			);
 			mainGroup = 1C7230B12965B2950052BFA5;
+			packageReferences = (
+			);
 			productRefGroup = 1C7230BB2965B2950052BFA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,6 +247,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C867B1A29730C5B000D1CF4 /* Build Release */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Release";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release\n";
+		};
+		1CB647E829700F8C009BBCA6 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\ncp $SRCROOT/.swiftlint.yml ./\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config .swiftlint.yml\nrm .swiftlint.yml\n";
+		};
+		1CE8796829731D7200467930 /* Run SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftFormat";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftFormat \\\n--product swiftformat\n\ncp $SRCROOT/.swiftformat ./\n.build/checkouts/SwiftFormat/.build/release/swiftformat $SRCROOT --config .swiftformat\nrm .swiftformat\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C7230B62965B2950052BFA5 /* Sources */ = {

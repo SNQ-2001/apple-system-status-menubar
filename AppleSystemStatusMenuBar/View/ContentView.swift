@@ -5,17 +5,19 @@
 //  Created by 宮本大新 on 2023/01/04.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel: AppViewModel
     @ObservedObject var delegate: AppDelegate
     @State var isHover: Bool = false
     init(viewModel: AppViewModel, delegate: AppDelegate) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.delegate = delegate
     }
+
+    // TODO: dddd
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
