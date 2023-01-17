@@ -22,7 +22,7 @@ struct ContentView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 List(viewModel.appleSystemStatus.services, id: \.serviceName) { service in
-                    serviceStatusCell(for: service)
+                    serviceStatusCellView(for: service)
                 }
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
 
@@ -39,16 +39,9 @@ struct ContentView: View {
         }
         .frame(width: 250, height: 500)
     }
+}
 
-    private func serviceStatusCell(for service: Service) -> some View {
-        Label {
-            Text(service.serviceName)
-        } icon: {
-            Image.circle
-        }
-        .labelStyle(.list(iconColor: .green))
-    }
-
+extension ContentView {
     private func settingsButton() -> some View {
         Label {
             Text("環境設定")
@@ -79,5 +72,38 @@ struct ContentView: View {
             .onTapGesture {
                 viewModel.quit()
             }
+    }
+
+    private func serviceStatusCellLabel(for service: Service) -> some View {
+        let isEvents = !service.events.isEmpty
+        return Label {
+            Text(service.serviceName)
+        } icon: {
+            Image.statusIcon(status: isEvents ? service.events[0].statusType : .default)
+        }
+        .labelStyle(.list(
+            statusType: isEvents ? service.events[0].statusType : .default,
+            isEvents: isEvents
+        ))
+    }
+
+    @ViewBuilder
+    private func serviceStatusCellView(for service: Service) -> some View {
+        let isEvents = !service.events.isEmpty
+        if isEvents {
+            NavigationLink {
+                SystemStatusDetailView(serviceName: service.serviceName, event: service.events[0])
+            } label: {
+                serviceStatusCellLabel(for: service)
+            }
+        } else {
+            serviceStatusCellLabel(for: service)
+        }
+    }
+}
+
+struct ContentViewPreviews: PreviewProvider {
+    static var previews: some View {
+        ContentView(viewModel: .init(repository: AppleRepositoryMock()), delegate: .init())
     }
 }

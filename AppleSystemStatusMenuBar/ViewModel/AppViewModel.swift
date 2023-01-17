@@ -25,6 +25,7 @@ final class AppViewModel: ObservableObject {
         NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)
             .sink { [weak self] _ in
                 guard let self else { return }
+                self.appleSystemStatus = .empty
                 self.getAppleSystemStatus()
             }
             .store(in: &cancellable)
@@ -33,7 +34,7 @@ final class AppViewModel: ObservableObject {
     private func getAppleSystemStatus() {
         repository.fetchAppleSystemStatus()
             .receive(on: DispatchQueue.main)
-            .replaceError(with: .init(services: []))
+            .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
             .sink { [weak self] appleSystemStatus in
                 guard let self else { return }
                 withAnimation { self.appleSystemStatus = appleSystemStatus }

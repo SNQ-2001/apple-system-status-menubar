@@ -16,7 +16,8 @@ struct AppleSystemStatus: Codable {
 // MARK: - Service
 
 struct Service: Codable {
-    var events: [Event]?
+    let redirectUrl: String?
+    var events: [Event]
     let serviceName: String
 }
 
@@ -24,12 +25,13 @@ struct Service: Codable {
 
 struct Event: Codable {
     let usersAffected: String
-    let epochStartDate, epochEndDate: Int
+    let epochStartDate: Int
+    let epochEndDate: Int?
     let messageID: String
     let statusType: StatusType
-    let datePosted: Date
-    let startDate: Date
-    let endDate: Date
+    let datePosted: String?
+    let startDate: String
+    let endDate: String?
     let affectedServices: [String]?
     let eventStatus: EventStatus
     let message: String
@@ -42,11 +44,22 @@ struct Event: Codable {
 }
 
 enum EventStatus: String, Codable {
-    case resolved
-    case completed
+    // MARK: resolvedとcompletedの違いがわからない
+
+    case resolved // 解決済み 緑色
+    case completed // ？？完了 緑色
+    case ongoing // 進行中 StatusTypeの色
 }
 
 enum StatusType: String, Codable {
-    case issue = "Issue"
-    case outage = "Outage"
+    case `default` // 問題なし　緑色
+    case maintenance = "Maintenance" // メンテナンス　緑色
+    case issue = "Issue" // 問題　黄色
+    case outage = "Outage" // 停電　赤色
+}
+
+extension AppleSystemStatus {
+    static var empty: Self {
+        .init(services: [])
+    }
 }

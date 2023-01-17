@@ -8,23 +8,39 @@
 import SwiftUI
 
 struct ListLabelStyle: LabelStyle {
-    let iconColor: Color
+    let statusType: StatusType
+    let isEvents: Bool
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 5) {
             configuration.icon
-                .foregroundColor(iconColor)
+                .foregroundColor(.statusColor(status: statusType))
                 .font(.system(size: 12, weight: .medium, design: .default))
                 .dynamicTypeSize(.medium)
+
             configuration.title
                 .foregroundColor(.primary)
                 .font(.system(size: 12, weight: .medium, design: .default))
+                .dynamicTypeSize(.medium)
+
+            Spacer()
+
+            disclosureIndicator()
+        }
+    }
+
+    @ViewBuilder
+    private func disclosureIndicator() -> some View {
+        if isEvents {
+            Image(systemName: "chevron.forward")
+                .foregroundColor(.secondary)
+                .font(.system(size: 12, weight: .bold, design: .default))
                 .dynamicTypeSize(.medium)
         }
     }
 }
 
 extension LabelStyle where Self == ListLabelStyle {
-    static func list(iconColor: Color) -> ListLabelStyle {
-        .init(iconColor: iconColor)
+    static func list(statusType: StatusType, isEvents: Bool) -> ListLabelStyle {
+        .init(statusType: statusType, isEvents: isEvents)
     }
 }

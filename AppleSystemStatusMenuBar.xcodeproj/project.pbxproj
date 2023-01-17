@@ -22,6 +22,9 @@
 		1CBC3A2C296AE22200E1EDB5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */; };
 		1CD725A12974518600AC5F6A /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD725A02974518600AC5F6A /* GeneralView.swift */; };
 		1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD725A2297451CB00AC5F6A /* LicenseView.swift */; };
+		1CE5E6252976A4D30061E249 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5E6242976A4D30061E249 /* Color+.swift */; };
+		1CE5E6272976BBAA0061E249 /* SystemStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5E6262976BBAA0061E249 /* SystemStatusDetailView.swift */; };
+		1CE5E6292976C8600061E249 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5E6282976C8600061E249 /* View+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1CD725A02974518600AC5F6A /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		1CD725A2297451CB00AC5F6A /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		1CE5E6242976A4D30061E249 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		1CE5E6262976BBAA0061E249 /* SystemStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatusDetailView.swift; sourceTree = "<group>"; };
+		1CE5E6282976C8600061E249 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				1C7230D72965C7760052BFA5 /* Image+.swift */,
+				1CE5E6242976A4D30061E249 /* Color+.swift */,
+				1CE5E6282976C8600061E249 /* View+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7230BF2965B2950052BFA5 /* ContentView.swift */,
+				1CE5E6262976BBAA0061E249 /* SystemStatusDetailView.swift */,
 			);
 			path = MenuBar;
 			sourceTree = "<group>";
@@ -307,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config \"$SRCROOT\"/.swiftlint.yml\n";
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config $SRCROOT/.swiftlint.yml\n";
 		};
 		1CE8796829731D7200467930 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -341,10 +350,13 @@
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
 				1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */,
 				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
+				1CE5E6272976BBAA0061E249 /* SystemStatusDetailView.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* ContentView.swift in Sources */,
+				1CE5E6252976A4D30061E249 /* Color+.swift in Sources */,
 				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
 				1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */,
 				1CD725A12974518600AC5F6A /* GeneralView.swift in Sources */,
+				1CE5E6292976C8600061E249 /* View+.swift in Sources */,
 				1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */,
 				1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */,
 				1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */,

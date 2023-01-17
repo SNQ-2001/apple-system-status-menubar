@@ -16,7 +16,7 @@ class AppleRepositoryImpl: AppleRepository {
     func fetchAppleSystemStatus() -> AnyPublisher<AppleSystemStatus, Error> {
         let endpoint = Endpoint(
             host: "www.apple.com",
-            path: "/support/systemstatus/data/system_status_en_US.js",
+            path: "/support/systemstatus/data/system_status_zh_CN.js",
             queryItems: []
         )
         guard let url = endpoint.url else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher() }
@@ -28,11 +28,11 @@ class AppleRepositoryMock: AppleRepository {
     func fetchAppleSystemStatus() -> AnyPublisher<AppleSystemStatus, Error> {
         Future { promise in
             promise(.success(.init(services: [
-                .init(events: [], serviceName: "Mock-1"),
-                .init(events: [], serviceName: "Mock-2"),
-                .init(events: [], serviceName: "Mock-3"),
-                .init(events: [], serviceName: "Mock-4"),
-                .init(events: [], serviceName: "Mock-5")
+                .init(redirectUrl: nil, events: [], serviceName: "Mock-1"),
+                .init(redirectUrl: nil, events: [], serviceName: "Mock-2"),
+                .init(redirectUrl: nil, events: [], serviceName: "Mock-3"),
+                .init(redirectUrl: nil, events: [], serviceName: "Mock-4"),
+                .init(redirectUrl: nil, events: [], serviceName: "Mock-5")
             ])))
         }
         .eraseToAnyPublisher()
