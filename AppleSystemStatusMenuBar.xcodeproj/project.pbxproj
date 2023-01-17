@@ -19,7 +19,9 @@
 		1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */; };
 		1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */; };
 		1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */; };
-		1CBC3A2C296AE22200E1EDB5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A2B296AE22200E1EDB5 /* SettingView.swift */; };
+		1CBC3A2C296AE22200E1EDB5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */; };
+		1CD725A12974518600AC5F6A /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD725A02974518600AC5F6A /* GeneralView.swift */; };
+		1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD725A2297451CB00AC5F6A /* LicenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,9 @@
 		1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
 		1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLabelStyle.swift; sourceTree = "<group>"; };
-		1CBC3A2B296AE22200E1EDB5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1CD725A02974518600AC5F6A /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		1CD725A2297451CB00AC5F6A /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +130,8 @@
 		1C7230D22965C4120052BFA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C7230BF2965B2950052BFA5 /* ContentView.swift */,
-				1CBC3A2B296AE22200E1EDB5 /* SettingView.swift */,
+				1CD7259F2974514900AC5F6A /* MenuBar */,
+				1CD7259E2974510F00AC5F6A /* Settings */,
 				1CBC3A28296AD01E00E1EDB5 /* Style */,
 			);
 			path = View;
@@ -174,6 +178,24 @@
 				1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		1CD7259E2974510F00AC5F6A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */,
+				1CD725A02974518600AC5F6A /* GeneralView.swift */,
+				1CD725A2297451CB00AC5F6A /* LicenseView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1CD7259F2974514900AC5F6A /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				1C7230BF2965B2950052BFA5 /* ContentView.swift */,
+			);
+			path = MenuBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\ncp $SRCROOT/.swiftlint.yml ./\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config .swiftlint.yml\nrm .swiftlint.yml\n";
-			showEnvVarsInLog = 0;
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftLint \\\n--product swiftlint\n\n.build/checkouts/SwiftLint/.build/release/swiftlint lint --config \"$SRCROOT\"/.swiftlint.yml\n";
 		};
 		1CE8796829731D7200467930 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -305,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftFormat \\\n--product swiftformat\n\ncp $SRCROOT/.swiftformat ./\n.build/checkouts/SwiftFormat/.build/release/swiftformat $SRCROOT --config .swiftformat --swiftversion 5.7\nrm .swiftformat\n";
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftFormat \\\n--product swiftformat\n\n.build/checkouts/SwiftFormat/.build/release/swiftformat $SRCROOT --config $SRCROOT/.swiftformat --swiftversion 5.7\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -316,15 +337,17 @@
 			files = (
 				1C719CAB296ED6E5007CA1DC /* AppDelegate.swift in Sources */,
 				1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */,
-				1CBC3A2C296AE22200E1EDB5 /* SettingView.swift in Sources */,
+				1CBC3A2C296AE22200E1EDB5 /* SettingsView.swift in Sources */,
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
 				1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */,
 				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* ContentView.swift in Sources */,
 				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
 				1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */,
+				1CD725A12974518600AC5F6A /* GeneralView.swift in Sources */,
 				1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */,
 				1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */,
+				1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

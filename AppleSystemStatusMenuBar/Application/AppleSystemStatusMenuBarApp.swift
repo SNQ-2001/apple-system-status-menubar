@@ -19,7 +19,7 @@ struct AppleSystemStatusMenuBarApp: App {
         .menuBarExtraStyle(.window)
 
         Settings {
-            SettingView()
+            SettingsView()
         }
     }
 }

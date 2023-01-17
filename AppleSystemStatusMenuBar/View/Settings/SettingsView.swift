@@ -1,5 +1,5 @@
 //
-//  SettingView.swift
+//  SettingsView.swift
 //  AppleSystemStatusMenuBar
 //
 //  Created by 宮本大新 on 2023/01/08.
@@ -7,24 +7,18 @@
 
 import SwiftUI
 
-struct SettingView: View {
+struct SettingsView: View {
     var body: some View {
         TabView {
-            Text("General")
+            GeneralView()
                 .tabItem {
                     Label("General", systemImage: "gear")
                 }
-            Text("License")
+            LicenseView()
                 .tabItem {
                     Label("License", systemImage: "book")
                 }
         }
         .frame(width: 300, height: 300)
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView()
     }
 }

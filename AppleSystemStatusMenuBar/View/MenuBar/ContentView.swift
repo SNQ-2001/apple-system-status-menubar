@@ -21,8 +21,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                List(viewModel.searchServiceResults, id: \.serviceName) { service in
-                    cell(for: service)
+                List(viewModel.appleSystemStatus.services, id: \.serviceName) { service in
+                    serviceStatusCell(for: service)
                 }
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
 
@@ -40,7 +40,7 @@ struct ContentView: View {
         .frame(width: 250, height: 500)
     }
 
-    private func cell(for service: Service) -> some View {
+    private func serviceStatusCell(for service: Service) -> some View {
         Label {
             Text(service.serviceName)
         } icon: {

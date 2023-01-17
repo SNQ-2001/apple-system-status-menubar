@@ -8,24 +8,16 @@
 import AppKit
 import Combine
 import Foundation
+import SwiftUI
 
 final class AppViewModel: ObservableObject {
     @Published var appleSystemStatus: AppleSystemStatus = .init(services: [])
-    @Published var searchText: String = ""
     @Published var isSettingsButtonHover: Bool = false
     @Published var isQuitButtonHover: Bool = false
 
     private let repository: AppleRepository
 
     private var cancellable = Set<AnyCancellable>()
-
-    var searchServiceResults: [Service] {
-        if searchText.isEmpty {
-            return appleSystemStatus.services
-        } else {
-            return appleSystemStatus.services.filter { $0.serviceName.localizedStandardContains(searchText) }
-        }
-    }
 
     init(repository: AppleRepository) {
         self.repository = repository
@@ -42,7 +34,11 @@ final class AppViewModel: ObservableObject {
         repository.fetchAppleSystemStatus()
             .receive(on: DispatchQueue.main)
             .replaceError(with: .init(services: []))
-            .assign(to: &$appleSystemStatus)
+            .sink { [weak self] appleSystemStatus in
+                guard let self else { return }
+                withAnimation { self.appleSystemStatus = appleSystemStatus }
+            }
+            .store(in: &cancellable)
     }
 
     func quit() {
