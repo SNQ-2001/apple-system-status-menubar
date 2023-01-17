@@ -39,7 +39,7 @@ struct SystemStatusDetailView: View {
 
             if event.endDate != nil {
                 Section {
-                    Text(event.endDate ?? "")
+                    Text(event.endDate?.description ?? "no data")
                 } header: {
                     Text("Event ended")
                 }
@@ -53,10 +53,8 @@ struct SystemStatusDetailView: View {
 
             if event.affectedServices != nil {
                 Section {
-                    VStack {
-                        ForEach(event.affectedServices ?? [], id: \.self) { index in
-                            Text(index)
-                        }
+                    ForEach(event.affectedServices ?? [], id: \.self) { affectedService in
+                        Text(affectedService)
                     }
                 } header: {
                     Text("Services affected")

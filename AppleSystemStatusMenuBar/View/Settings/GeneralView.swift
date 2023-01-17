@@ -9,9 +9,6 @@ import SwiftUI
 
 struct GeneralView: View {
     var body: some View {
-        Picker("", selection: .constant("")) {
-            Text("ああ")
-            Text("いい")
-        }
+        Text("GeneralView")
     }
 }

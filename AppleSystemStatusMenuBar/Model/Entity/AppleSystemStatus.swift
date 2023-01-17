@@ -25,8 +25,8 @@ struct Service: Codable {
 
 struct Event: Codable {
     let usersAffected: String
-    let epochStartDate: Int
-    let epochEndDate: Int?
+    let epochStartDate: Double
+    let epochEndDate: Double?
     let messageID: String
     let statusType: StatusType
     let datePosted: String?
