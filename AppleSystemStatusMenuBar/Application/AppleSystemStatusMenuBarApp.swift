@@ -12,7 +12,7 @@ struct AppleSystemStatusMenuBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         MenuBarExtra {
-            ContentView(viewModel: AppViewModel(repository: AppleRepositoryImpl()), delegate: delegate)
+            SystemStatusView(viewModel: AppViewModel(repository: AppleRepositoryImpl()), delegate: delegate)
         } label: {
             Image(systemName: "apple.logo")
         }

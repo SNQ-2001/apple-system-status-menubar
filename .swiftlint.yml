@@ -1,2 +1,5 @@
 included:
 - ${TARGET_NAME}
+
+disabled_rules:
+- trailing_whitespace

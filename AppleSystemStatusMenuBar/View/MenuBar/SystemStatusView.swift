@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-struct ContentView: View {
+struct SystemStatusView: View {
     @StateObject var viewModel: AppViewModel
 
     @ObservedObject var delegate: AppDelegate
@@ -41,7 +41,7 @@ struct ContentView: View {
     }
 }
 
-extension ContentView {
+extension SystemStatusView {
     private func settingsButton() -> some View {
         Label {
             Text("環境設定")
@@ -99,11 +99,5 @@ extension ContentView {
         } else {
             serviceStatusCellLabel(for: service)
         }
-    }
-}
-
-struct ContentViewPreviews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: .init(repository: AppleRepositoryMock()), delegate: .init())
     }
 }
