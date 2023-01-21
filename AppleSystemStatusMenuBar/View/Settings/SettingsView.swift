@@ -19,6 +19,6 @@ struct SettingsView: View {
                     Label("License", systemImage: "book")
                 }
         }
-        .frame(width: 300, height: 300)
+        .frame(width: 350, height: 300)
     }
 }
