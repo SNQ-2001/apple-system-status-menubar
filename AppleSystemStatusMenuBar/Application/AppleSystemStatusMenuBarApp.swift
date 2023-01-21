@@ -14,7 +14,7 @@ struct AppleSystemStatusMenuBarApp: App {
         MenuBarExtra {
             SystemStatusView(viewModel: AppViewModel(repository: AppleRepositoryImpl()), delegate: delegate)
         } label: {
-            Image(systemName: "apple.logo")
+            Image(systemName: "circle.dashed.inset.filled")
         }
         .menuBarExtraStyle(.window)
 
