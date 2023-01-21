@@ -79,10 +79,14 @@ extension SystemStatusView {
         return Label {
             Text(service.serviceName)
         } icon: {
-            Image.statusIcon(status: isEvents ? service.events[0].statusType : .default)
+            Image.statusIcon(
+                statusType: isEvents ? service.events[0].statusType : .default,
+                eventStatus: isEvents ? service.events[0].eventStatus : .default
+            )
         }
         .labelStyle(.list(
             statusType: isEvents ? service.events[0].statusType : .default,
+            eventStatus: isEvents ? service.events[0].eventStatus : .default,
             isEvents: isEvents
         ))
     }

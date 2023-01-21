@@ -8,24 +8,23 @@
 import SwiftUI
 
 extension Image {
-    static let circle = Image(systemName: "circle.fill") // 緑色
-    static let diamond = Image(systemName: "diamond.fill") // 黄色
-    static let triangle = Image(systemName: "triangle.fill") // 赤色
-
-    static let slider = Image(systemName: "slider.horizontal.3") // 環境設定
+    static let circle = Image(systemName: "circle.fill")
+    static let diamond = Image(systemName: "diamond.fill")
+    static let triangle = Image(systemName: "triangle.fill")
+    static let slider = Image(systemName: "slider.horizontal.3")
 }
 
 extension Image {
-    static func statusIcon(status: StatusType) -> Image {
-        switch status {
+    static func statusIcon(statusType: StatusType, eventStatus: EventStatus) -> Image {
+        switch statusType {
         case .default:
             return .circle
         case .maintenance:
             return .circle
         case .issue:
-            return .diamond
+            return eventStatus == .ongoing ? .diamond : .circle
         case .outage:
-            return .triangle
+            return eventStatus == .ongoing ? .triangle : .circle
         }
     }
 }

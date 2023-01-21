@@ -9,16 +9,16 @@
 import SwiftUI
 
 extension Color {
-    static func statusColor(status: StatusType) -> Color {
-        switch status {
+    static func statusColor(statusType: StatusType, eventStatus: EventStatus) -> Color {
+        switch statusType {
         case .default:
             return .green
         case .maintenance:
             return .green
         case .issue:
-            return .yellow
+            return eventStatus == .ongoing ? .yellow : .green
         case .outage:
-            return .red
+            return eventStatus == .ongoing ? .red : .green
         }
     }
 }

@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ListLabelStyle: LabelStyle {
     let statusType: StatusType
+    let eventStatus: EventStatus
     let isEvents: Bool
+
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 5) {
             configuration.icon
-                .foregroundColor(.statusColor(status: statusType))
+                .foregroundColor(.statusColor(statusType: statusType, eventStatus: eventStatus))
                 .font(.system(size: 12, weight: .medium, design: .default))
                 .dynamicTypeSize(.medium)
 
@@ -40,7 +42,15 @@ struct ListLabelStyle: LabelStyle {
 }
 
 extension LabelStyle where Self == ListLabelStyle {
-    static func list(statusType: StatusType, isEvents: Bool) -> ListLabelStyle {
-        .init(statusType: statusType, isEvents: isEvents)
+    static func list(
+        statusType: StatusType,
+        eventStatus: EventStatus,
+        isEvents: Bool
+    ) -> ListLabelStyle {
+        .init(
+            statusType: statusType,
+            eventStatus: eventStatus,
+            isEvents: isEvents
+        )
     }
 }

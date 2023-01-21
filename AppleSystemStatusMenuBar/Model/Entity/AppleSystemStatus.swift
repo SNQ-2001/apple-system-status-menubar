@@ -44,18 +44,17 @@ struct Event: Codable {
 }
 
 enum EventStatus: String, Codable {
-    // MARK: resolvedとcompletedの違いがわからない
-
-    case resolved // 解決済み 緑色
-    case completed // ？？完了 緑色
-    case ongoing // 進行中 StatusTypeの色
+    case `default`
+    case resolved
+    case completed
+    case ongoing
 }
 
 enum StatusType: String, Codable {
-    case `default` // 問題なし　緑色
-    case maintenance = "Maintenance" // メンテナンス　緑色
-    case issue = "Issue" // 問題　黄色
-    case outage = "Outage" // 停電　赤色
+    case `default`
+    case maintenance = "Maintenance"
+    case issue = "Issue"
+    case outage = "Outage"
 }
 
 extension AppleSystemStatus {
