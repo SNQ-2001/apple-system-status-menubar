@@ -17,7 +17,7 @@
 		1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D92965CB360052BFA5 /* APIClient.swift */; };
 		1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230DB2965CB410052BFA5 /* Endpoint.swift */; };
 		1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */; };
-		1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */; };
+		1CBC39ED29697D9C00E1EDB5 /* SystemStatuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EC29697D9C00E1EDB5 /* SystemStatuViewModel.swift */; };
 		1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */; };
 		1CBC3A2C296AE22200E1EDB5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */; };
 		1CD725A12974518600AC5F6A /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD725A02974518600AC5F6A /* GeneralView.swift */; };
@@ -26,6 +26,8 @@
 		1CE5E6272976BBAA0061E249 /* SystemStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5E6262976BBAA0061E249 /* SystemStatusDetailView.swift */; };
 		1CE5E6292976C8600061E249 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5E6282976C8600061E249 /* View+.swift */; };
 		1CEC3591297C4361005BA12F /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC3590297C4361005BA12F /* License.swift */; };
+		1CEC3593297C4466005BA12F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC3592297C4466005BA12F /* SettingsViewModel.swift */; };
+		1CEC3595297C4700005BA12F /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC3594297C4700005BA12F /* Locale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,7 @@
 		1C7230D92965CB360052BFA5 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1C7230DB2965CB410052BFA5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
-		1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		1CBC39EC29697D9C00E1EDB5 /* SystemStatuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatuViewModel.swift; sourceTree = "<group>"; };
 		1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLabelStyle.swift; sourceTree = "<group>"; };
 		1CBC3A2B296AE22200E1EDB5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1CD725A02974518600AC5F6A /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		1CEC358E297C3E2F005BA12F /* SwiftLint.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftLint.txt; sourceTree = "<group>"; };
 		1CEC358F297C3E4F005BA12F /* SwiftFormat.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftFormat.txt; sourceTree = "<group>"; };
 		1CEC3590297C4361005BA12F /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		1CEC3592297C4466005BA12F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		1CEC3594297C4700005BA12F /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +140,8 @@
 		1C7230D12965C4070052BFA5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC39EC29697D9C00E1EDB5 /* AppViewModel.swift */,
+				1CBC39EC29697D9C00E1EDB5 /* SystemStatuViewModel.swift */,
+				1CEC3592297C4466005BA12F /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			children = (
 				1C7230CC2965B2B50052BFA5 /* AppleSystemStatus.swift */,
 				1CEC3590297C4361005BA12F /* License.swift */,
+				1CEC3594297C4700005BA12F /* Locale.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -355,10 +361,11 @@
 				1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */,
 				1CBC3A2C296AE22200E1EDB5 /* SettingsView.swift in Sources */,
 				1C7230CD2965B2B50052BFA5 /* AppleSystemStatus.swift in Sources */,
-				1CBC39ED29697D9C00E1EDB5 /* AppViewModel.swift in Sources */,
+				1CBC39ED29697D9C00E1EDB5 /* SystemStatuViewModel.swift in Sources */,
 				1C7230D82965C7760052BFA5 /* Image+.swift in Sources */,
 				1CE5E6272976BBAA0061E249 /* SystemStatusDetailView.swift in Sources */,
 				1C7230C02965B2950052BFA5 /* SystemStatusView.swift in Sources */,
+				1CEC3595297C4700005BA12F /* Locale.swift in Sources */,
 				1CE5E6252976A4D30061E249 /* Color+.swift in Sources */,
 				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
 				1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */,
@@ -368,6 +375,7 @@
 				1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */,
 				1CEC3591297C4361005BA12F /* License.swift in Sources */,
 				1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */,
+				1CEC3593297C4466005BA12F /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

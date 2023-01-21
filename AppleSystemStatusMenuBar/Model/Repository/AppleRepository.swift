@@ -9,14 +9,14 @@ import Combine
 import Foundation
 
 protocol AppleRepository {
-    func fetchAppleSystemStatus() -> AnyPublisher<AppleSystemStatus, Error>
+    func fetchAppleSystemStatus(localeName: String) -> AnyPublisher<AppleSystemStatus, Error>
 }
 
 class AppleRepositoryImpl: AppleRepository {
-    func fetchAppleSystemStatus() -> AnyPublisher<AppleSystemStatus, Error> {
+    func fetchAppleSystemStatus(localeName: String) -> AnyPublisher<AppleSystemStatus, Error> {
         let endpoint = Endpoint(
             host: "www.apple.com",
-            path: "/support/systemstatus/data/system_status_ja_JP.js",
+            path: "/support/systemstatus/data/system_status_\(localeName).js",
             queryItems: []
         )
         guard let url = endpoint.url else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher() }
@@ -25,7 +25,7 @@ class AppleRepositoryImpl: AppleRepository {
 }
 
 class AppleRepositoryMock: AppleRepository {
-    func fetchAppleSystemStatus() -> AnyPublisher<AppleSystemStatus, Error> {
+    func fetchAppleSystemStatus(localeName _: String) -> AnyPublisher<AppleSystemStatus, Error> {
         Future { promise in
             promise(.success(.init(services: [
                 .init(redirectUrl: nil, events: [], serviceName: "Mock-1"),

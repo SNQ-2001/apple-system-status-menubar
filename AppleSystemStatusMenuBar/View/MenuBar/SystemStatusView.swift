@@ -9,11 +9,11 @@ import Combine
 import SwiftUI
 
 struct SystemStatusView: View {
-    @StateObject var viewModel: AppViewModel
+    @StateObject var viewModel: SystemStatuViewModel
 
     @ObservedObject var delegate: AppDelegate
 
-    init(viewModel: AppViewModel, delegate: AppDelegate) {
+    init(viewModel: SystemStatuViewModel, delegate: AppDelegate) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.delegate = delegate
     }

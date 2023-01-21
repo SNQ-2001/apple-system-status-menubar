@@ -12,14 +12,14 @@ struct AppleSystemStatusMenuBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         MenuBarExtra {
-            SystemStatusView(viewModel: AppViewModel(repository: AppleRepositoryImpl()), delegate: delegate)
+            SystemStatusView(viewModel: .init(repository: AppleRepositoryImpl()), delegate: delegate)
         } label: {
             Image(systemName: "circle.dashed.inset.filled")
         }
         .menuBarExtraStyle(.window)
 
         Settings {
-            SettingsView()
+            SettingsView(viewModel: .init())
         }
     }
 }

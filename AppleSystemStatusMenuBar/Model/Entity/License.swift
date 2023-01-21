@@ -12,3 +12,16 @@ struct License {
     let name: String
     let url: URL
 }
+
+extension License {
+    static let licenses: [License] = [
+        .init(
+            name: "SwiftLint",
+            url: URL(string: "https://github.com/realm/SwiftLint")!
+        ),
+        .init(
+            name: "SwiftFormat",
+            url: URL(string: "https://github.com/nicklockwood/SwiftFormat")!
+        )
+    ]
+}

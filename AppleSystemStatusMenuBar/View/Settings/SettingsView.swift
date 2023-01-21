@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @StateObject private var viewModel: SettingsViewModel
+
+    init(viewModel: SettingsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         TabView {
-            GeneralView()
-                .tabItem {
-                    Label("General", systemImage: "gear")
-                }
+            GeneralView(viewModel: viewModel)
+                .tabItem { Label("General", systemImage: "gear") }
             LicenseView()
-                .tabItem {
-                    Label("License", systemImage: "book")
-                }
+                .tabItem { Label("License", systemImage: "book") }
         }
         .frame(width: 350, height: 300)
     }

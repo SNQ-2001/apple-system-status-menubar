@@ -8,7 +8,22 @@
 import SwiftUI
 
 struct GeneralView: View {
+    @ObservedObject private var viewModel: SettingsViewModel
+
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
-        Text("GeneralView")
+        VStack {
+            Picker(selection: $viewModel.localeName) {
+                ForEach(Locale.allCases, id: \.name) { locale in
+                    Text(locale.country).tag(locale.name)
+                }
+            } label: {
+                Text("Country")
+            }
+        }
+        .padding()
     }
 }

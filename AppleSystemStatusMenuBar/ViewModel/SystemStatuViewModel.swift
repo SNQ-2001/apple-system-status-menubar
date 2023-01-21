@@ -10,10 +10,12 @@ import Combine
 import Foundation
 import SwiftUI
 
-final class AppViewModel: ObservableObject {
+final class SystemStatuViewModel: ObservableObject {
     @Published var appleSystemStatus: AppleSystemStatus = .init(services: [])
     @Published var isSettingsButtonHover: Bool = false
     @Published var isQuitButtonHover: Bool = false
+
+    @AppStorage("localeName") var localeName: String = Locale.english.name
 
     private let repository: AppleRepository
 
@@ -32,7 +34,7 @@ final class AppViewModel: ObservableObject {
     }
 
     private func getAppleSystemStatus() {
-        repository.fetchAppleSystemStatus()
+        repository.fetchAppleSystemStatus(localeName: localeName)
             .receive(on: DispatchQueue.main)
             .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
             .sink { [weak self] appleSystemStatus in

@@ -8,19 +8,8 @@
 import SwiftUI
 
 struct LicenseView: View {
-    private let licenses: [License] = [
-        .init(
-            name: "SwiftLint",
-            url: URL(string: "https://github.com/realm/SwiftLint")!
-        ),
-        .init(
-            name: "SwiftFormat",
-            url: URL(string: "https://github.com/nicklockwood/SwiftFormat")!
-        )
-    ]
-
     var body: some View {
-        List(licenses, id: \.name) { license in
+        List(License.licenses, id: \.name) { license in
             licenseCell(name: license.name, url: license.url)
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
