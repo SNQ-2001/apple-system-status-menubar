@@ -51,8 +51,6 @@
 		1CE5E6242976A4D30061E249 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1CE5E6262976BBAA0061E249 /* SystemStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatusDetailView.swift; sourceTree = "<group>"; };
 		1CE5E6282976C8600061E249 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		1CEC358E297C3E2F005BA12F /* SwiftLint.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftLint.txt; sourceTree = "<group>"; };
-		1CEC358F297C3E4F005BA12F /* SwiftFormat.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftFormat.txt; sourceTree = "<group>"; };
 		1CEC3590297C4361005BA12F /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		1CEC3592297C4466005BA12F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1CEC3594297C4700005BA12F /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
@@ -111,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				1C7230C12965B2980052BFA5 /* Assets.xcassets */,
-				1CEC358E297C3E2F005BA12F /* SwiftLint.txt */,
-				1CEC358F297C3E4F005BA12F /* SwiftFormat.txt */,
 			);
 			path = Resource;
 			sourceTree = "<group>";

@@ -15,14 +15,36 @@ struct GeneralView: View {
     }
 
     var body: some View {
-        VStack {
-            Picker(selection: $viewModel.localeName) {
-                ForEach(Locale.allCases, id: \.name) { locale in
-                    Text(locale.country).tag(locale.name)
+        VStack(spacing: 15) {
+            GroupBox {
+                Picker(selection: $viewModel.localeName) {
+                    ForEach(Locale.allCases, id: \.name) { locale in
+                        Text(locale.country).tag(locale.name)
+                    }
+                } label: {
+                    Text("Country")
                 }
-            } label: {
-                Text("Country")
+                .padding(.vertical, 10)
             }
+
+            HStack(spacing: 10) {
+                Button {
+                    let url = URL(string: "https://twitter.com/SNQ2001")!
+                    NSWorkspace.shared.open(url)
+                } label: {
+                    Text("Twitter")
+                }
+                .buttonStyle(.bordered)
+
+                Button {
+                    let url = URL(string: "https://github.com/SNQ-2001")!
+                    NSWorkspace.shared.open(url)
+                } label: {
+                    Text("GitHub")
+                }
+                .buttonStyle(.bordered)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .padding()
     }
