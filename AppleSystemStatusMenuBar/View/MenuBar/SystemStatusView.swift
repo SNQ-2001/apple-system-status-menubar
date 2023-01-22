@@ -44,7 +44,7 @@ struct SystemStatusView: View {
 extension SystemStatusView {
     private func settingsButton() -> some View {
         Label {
-            Text("環境設定")
+            Text("Preferences")
                 .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
                 .font(.system(size: 11, weight: .medium, design: .default))
         } icon: {
@@ -62,7 +62,7 @@ extension SystemStatusView {
 
     private func quitButton() -> some View {
         Label {
-            Text("終了")
+            Text("Quit")
                 .foregroundColor(viewModel.isQuitButtonHover ? .blue : .primary)
                 .font(.system(size: 11, weight: .medium, design: .default))
         } icon: {}
