@@ -10,7 +10,7 @@ import Foundation
 
 protocol AppleRepository {
     func fetchAppleSystemStatus(localeName: String) -> AnyPublisher<AppleSystemStatus, Error>
-    func fetchAppleDeveloperSystemStatus() -> AnyPublisher<AppleDeveloperSystemStatus, Error>
+    func fetchAppleDeveloperSystemStatus(localeName: String) -> AnyPublisher<AppleDeveloperSystemStatus, Error>
 }
 
 class AppleRepositoryImpl: AppleRepository {
@@ -22,9 +22,9 @@ class AppleRepositoryImpl: AppleRepository {
         return APIClient.fetch(url: url)
     }
 
-    func fetchAppleDeveloperSystemStatus() -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
+    func fetchAppleDeveloperSystemStatus(localeName: String) -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
         let endpoint = Endpoint(
-            path: "/support/systemstatus/data/developer/system_status_en_US.js",
+            path: "/support/systemstatus/data/developer/system_status_\(localeName).js",
             queryItems: []
         )
         guard let url = endpoint.url else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher() }
@@ -46,7 +46,7 @@ class AppleRepositoryMock: AppleRepository {
         .eraseToAnyPublisher()
     }
 
-    func fetchAppleDeveloperSystemStatus() -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
+    func fetchAppleDeveloperSystemStatus(localeName _: String) -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
         Future { promise in
             promise(.success(.init(services: [
                 .init(redirectUrl: nil, events: [], serviceName: "Mock-1-AppleDeveloperSystemStatus"),

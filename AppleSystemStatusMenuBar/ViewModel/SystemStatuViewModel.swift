@@ -51,7 +51,7 @@ final class SystemStatuViewModel: ObservableObject {
     }
 
     private func getAppleDeveloperSystemStatus() {
-        repository.fetchAppleDeveloperSystemStatus()
+        repository.fetchAppleDeveloperSystemStatus(localeName: appleDeveloperSystemLocaleName)
             .receive(on: DispatchQueue.main)
             .retry(5)
             .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
