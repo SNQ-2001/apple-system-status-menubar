@@ -18,8 +18,9 @@ struct GeneralView: View {
         VStack(spacing: 15) {
             GroupBox {
                 VStack(spacing: 0) {
-                    Text("Apple System Status".uppercased())
+                    Text("Apple System Status")
                         .font(.subheadline)
+                        .textCase(.uppercase)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.init(top: 0, leading: 1, bottom: 3, trailing: 0))
                     Picker("", selection: $viewModel.appleSystemLocaleName) {
@@ -32,8 +33,9 @@ struct GeneralView: View {
 
                     Divider().padding(.init(top: 8, leading: 0, bottom: 5, trailing: 0))
 
-                    Text("Apple System System Status".uppercased())
+                    Text("Apple System System Status")
                         .font(.subheadline)
+                        .textCase(.uppercase)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.init(top: 0, leading: 1, bottom: 3, trailing: 0))
                     Picker("", selection: $viewModel.appleDeveloperSystemLocaleName) {
