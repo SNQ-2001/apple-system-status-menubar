@@ -9,5 +9,7 @@
 import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
-    @AppStorage("localeName") var localeName: String = Locale.english.name
+    @AppStorage("appleSystemLocaleName") var appleSystemLocaleName: String = AppleSystemLocale.english.name
+    // swiftlint: disable line_length
+    @AppStorage("appleDeveloperSystemLocaleName") var appleDeveloperSystemLocaleName: String = AppleDeveloperSystemLocale.english.name
 }

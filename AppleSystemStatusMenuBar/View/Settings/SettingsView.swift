@@ -21,6 +21,6 @@ struct SettingsView: View {
             LicenseView()
                 .tabItem { Label("License", systemImage: "book") }
         }
-        .frame(width: 350, height: 320)
+        .frame(width: 350, height: 170)
     }
 }

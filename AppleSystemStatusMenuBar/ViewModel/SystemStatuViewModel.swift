@@ -16,7 +16,9 @@ final class SystemStatuViewModel: ObservableObject {
     @Published var isSettingsButtonHover: Bool = false
     @Published var isQuitButtonHover: Bool = false
 
-    @AppStorage("localeName") var localeName: String = Locale.english.name
+    @AppStorage("appleSystemLocaleName") var appleSystemLocaleName: String = AppleSystemLocale.english.name
+    // swiftlint: disable line_length
+    @AppStorage("appleDeveloperSystemLocaleName") var appleDeveloperSystemLocaleName: String = AppleDeveloperSystemLocale.english.name
 
     private let repository: AppleRepository
 
@@ -37,7 +39,7 @@ final class SystemStatuViewModel: ObservableObject {
     }
 
     private func getAppleSystemStatus() {
-        repository.fetchAppleSystemStatus(localeName: localeName)
+        repository.fetchAppleSystemStatus(localeName: appleSystemLocaleName)
             .receive(on: DispatchQueue.main)
             .retry(5)
             .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))

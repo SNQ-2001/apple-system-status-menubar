@@ -17,13 +17,34 @@ struct GeneralView: View {
     var body: some View {
         VStack(spacing: 15) {
             GroupBox {
-                Picker("Country", selection: $viewModel.localeName) {
-                    ForEach(Locale.allCases, id: \.name) { locale in
-                        Text(locale.country).tag(locale.name)
+                VStack(spacing: 0) {
+                    Text("Apple System Status".uppercased())
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.init(top: 0, leading: 1, bottom: 3, trailing: 0))
+                    Picker("", selection: $viewModel.appleSystemLocaleName) {
+                        ForEach(AppleSystemLocale.allCases, id: \.name) { locale in
+                            Text(locale.country).tag(locale.name)
+                        }
                     }
+                    .labelsHidden()
+                    .pickerStyle(.menu)
+
+                    Divider().padding(.init(top: 8, leading: 0, bottom: 5, trailing: 0))
+
+                    Text("Apple System System Status".uppercased())
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.init(top: 0, leading: 1, bottom: 3, trailing: 0))
+                    Picker("", selection: $viewModel.appleDeveloperSystemLocaleName) {
+                        ForEach(AppleDeveloperSystemLocale.allCases, id: \.name) { locale in
+                            Text(locale.country).tag(locale.name)
+                        }
+                    }
+                    .labelsHidden()
+                    .pickerStyle(.menu)
                 }
-                .pickerStyle(.menu)
-                .padding(.vertical, 10)
+                .padding(.vertical, 5)
             }
 
             HStack(spacing: 10) {

@@ -1,5 +1,5 @@
 //
-//  Region.swift
+//  AppleSystemLocale.swift
 //  AppleSystemStatusMenuBar
 //
 //  Created by TAISHIN MIYAMOTO on 2023/01/22
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Locale {
+enum AppleSystemLocale {
     case english
     case china
     case japan
@@ -21,7 +21,7 @@ enum Locale {
     case russia
 }
 
-extension Locale {
+extension AppleSystemLocale {
     var country: String {
         switch self {
         case .english: return "USA"
@@ -53,4 +53,4 @@ extension Locale {
     }
 }
 
-extension Locale: CaseIterable {}
+extension AppleSystemLocale: CaseIterable {}
