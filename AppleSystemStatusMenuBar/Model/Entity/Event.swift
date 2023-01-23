@@ -14,11 +14,7 @@ struct Event: Codable {
     let usersAffected: String
     let epochStartDate: Double
     let epochEndDate: Double?
-    let messageId: String
     let statusType: StatusType
-    let datePosted: String?
-    let startDate: String
-    let endDate: String?
     let affectedServices: [String]?
     let eventStatus: EventStatus
     let message: String

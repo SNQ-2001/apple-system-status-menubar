@@ -17,13 +17,12 @@ struct GeneralView: View {
     var body: some View {
         VStack(spacing: 15) {
             GroupBox {
-                Picker(selection: $viewModel.localeName) {
+                Picker("Country", selection: $viewModel.localeName) {
                     ForEach(Locale.allCases, id: \.name) { locale in
                         Text(locale.country).tag(locale.name)
                     }
-                } label: {
-                    Text("Country")
                 }
+                .pickerStyle(.menu)
                 .padding(.vertical, 10)
             }
 

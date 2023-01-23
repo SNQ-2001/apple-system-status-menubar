@@ -53,7 +53,7 @@ struct SystemStatusDetailView: View {
                 Text(startDate).lineLimit(nil)
             }
 
-            if event.endDate != nil {
+            if event.epochEndDate != nil {
                 section(label: "Event ended") {
                     Text(endDate).lineLimit(nil)
                 }
