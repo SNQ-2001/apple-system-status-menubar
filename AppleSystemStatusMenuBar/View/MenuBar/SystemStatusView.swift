@@ -19,30 +19,27 @@ struct SystemStatusView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 0) {
-                List(viewModel.appleSystemStatus.services, id: \.serviceName) { service in
-                    serviceStatusCellView(for: service)
-                }
-                .listStyle(.bordered(alternatesRowBackgrounds: true))
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                appleSystemStatusList(systemType: .appleSystem(viewModel.appleSystemStatus.services))
 
-                HStack(spacing: 0) {
-                    settingsButton()
-
-                    Spacer()
-
-                    quitButton()
-                }
-                .padding(.all, 7)
+                appleSystemStatusList(systemType: .appleDeveloperSystem(viewModel.appleDeveloperSystemStatus.services))
             }
-            .navigationTitle("Apple System Status")
+
+            HStack(spacing: 0) {
+                preferencesButton()
+
+                Spacer()
+
+                quitButton()
+            }
+            .padding(.all, 7)
         }
-        .frame(width: 250, height: 500)
     }
 }
 
 extension SystemStatusView {
-    private func settingsButton() -> some View {
+    private func preferencesButton() -> some View {
         Label {
             Text("Preferences")
                 .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
@@ -74,7 +71,7 @@ extension SystemStatusView {
             }
     }
 
-    private func serviceStatusCellLabel(for service: Service) -> some View {
+    private func appleSystemStatusCellLabel(for service: Service) -> some View {
         let isEvents = !service.events.isEmpty
         return Label {
             Text(service.serviceName)
@@ -92,16 +89,28 @@ extension SystemStatusView {
     }
 
     @ViewBuilder
-    private func serviceStatusCellView(for service: Service) -> some View {
+    private func appleSystemStatusCellView(for service: Service) -> some View {
         let isEvents = !service.events.isEmpty
         if isEvents {
             NavigationLink {
                 SystemStatusDetailView(serviceName: service.serviceName, event: service.events[0])
             } label: {
-                serviceStatusCellLabel(for: service)
+                appleSystemStatusCellLabel(for: service)
             }
         } else {
-            serviceStatusCellLabel(for: service)
+            appleSystemStatusCellLabel(for: service)
         }
+    }
+
+    private func appleSystemStatusList(systemType: SystemType) -> some View {
+        let services = viewModel.services(systemType: systemType)
+        return NavigationStack {
+            List(services, id: \.serviceName) { service in
+                appleSystemStatusCellView(for: service)
+            }
+            .listStyle(.bordered(alternatesRowBackgrounds: true))
+            .navigationTitle(systemType.title)
+        }
+        .frame(width: 250, height: 500)
     }
 }

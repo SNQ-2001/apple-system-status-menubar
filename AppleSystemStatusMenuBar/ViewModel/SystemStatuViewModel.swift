@@ -58,6 +58,15 @@ final class SystemStatuViewModel: ObservableObject {
             .store(in: &cancellable)
     }
 
+    func services(systemType: SystemType) -> [Service] {
+        switch systemType {
+        case let .appleSystem(services):
+            return services
+        case let .appleDeveloperSystem(services):
+            return services
+        }
+    }
+
     func quit() {
         NSApplication.shared.terminate(nil)
     }

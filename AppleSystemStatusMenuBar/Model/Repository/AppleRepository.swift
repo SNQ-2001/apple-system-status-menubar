@@ -27,7 +27,7 @@ class AppleRepositoryImpl: AppleRepository {
     func fetchAppleDeveloperSystemStatus() -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
         let endpoint = Endpoint(
             host: "www.apple.com",
-            path: "/support/systemstatus/data/system_status_en_US.js",
+            path: "/support/systemstatus/data/developer/system_status_en_US.js",
             queryItems: []
         )
         guard let url = endpoint.url else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher() }

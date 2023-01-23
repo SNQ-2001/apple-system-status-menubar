@@ -12,6 +12,7 @@
 		1C28538E297E7B9700B16A75 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28538D297E7B9700B16A75 /* Event.swift */; };
 		1C285390297E7BC400B16A75 /* EventStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28538F297E7BC400B16A75 /* EventStatus.swift */; };
 		1C285392297E7BD800B16A75 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C285391297E7BD800B16A75 /* StatusType.swift */; };
+		1C285394297E830000B16A75 /* SystemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C285393297E830000B16A75 /* SystemType.swift */; };
 		1C719CAB296ED6E5007CA1DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C719CAA296ED6E5007CA1DC /* AppDelegate.swift */; };
 		1C7230BE2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230BD2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift */; };
 		1C7230C02965B2950052BFA5 /* SystemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230BF2965B2950052BFA5 /* SystemStatusView.swift */; };
@@ -41,6 +42,7 @@
 		1C28538D297E7B9700B16A75 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1C28538F297E7BC400B16A75 /* EventStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatus.swift; sourceTree = "<group>"; };
 		1C285391297E7BD800B16A75 /* StatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
+		1C285393297E830000B16A75 /* SystemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemType.swift; sourceTree = "<group>"; };
 		1C719CAA296ED6E5007CA1DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7230BA2965B2950052BFA5 /* AppleSystemStatusMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleSystemStatusMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7230BD2965B2950052BFA5 /* AppleSystemStatusMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSystemStatusMenuBarApp.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				1C285391297E7BD800B16A75 /* StatusType.swift */,
 				1CEC3590297C4361005BA12F /* License.swift */,
 				1CEC3594297C4700005BA12F /* Locale.swift */,
+				1C285393297E830000B16A75 /* SystemType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				1C28538A297E7AEF00B16A75 /* AppleDeveloperSystemStatus.swift in Sources */,
 				1CEC3595297C4700005BA12F /* Locale.swift in Sources */,
 				1CE5E6252976A4D30061E249 /* Color+.swift in Sources */,
+				1C285394297E830000B16A75 /* SystemType.swift in Sources */,
 				1C28538E297E7B9700B16A75 /* Event.swift in Sources */,
 				1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */,
 				1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */,
