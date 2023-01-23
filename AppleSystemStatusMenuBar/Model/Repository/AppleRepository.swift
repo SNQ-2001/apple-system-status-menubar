@@ -16,9 +16,7 @@ protocol AppleRepository {
 class AppleRepositoryImpl: AppleRepository {
     func fetchAppleSystemStatus(localeName: String) -> AnyPublisher<AppleSystemStatus, Error> {
         let endpoint = Endpoint(
-            host: "www.apple.com",
-            path: "/support/systemstatus/data/system_status_\(localeName).js",
-            queryItems: []
+            path: "/support/systemstatus/data/system_status_\(localeName).js"
         )
         guard let url = endpoint.url else { return Fail(error: URLError(.badURL)).eraseToAnyPublisher() }
         return APIClient.fetch(url: url)
@@ -26,7 +24,6 @@ class AppleRepositoryImpl: AppleRepository {
 
     func fetchAppleDeveloperSystemStatus() -> AnyPublisher<AppleDeveloperSystemStatus, Error> {
         let endpoint = Endpoint(
-            host: "www.apple.com",
             path: "/support/systemstatus/data/developer/system_status_en_US.js",
             queryItems: []
         )
