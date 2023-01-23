@@ -27,7 +27,7 @@ struct Event: Codable {
     let usersAffected: String
     let epochStartDate: Double
     let epochEndDate: Double?
-    let messageID: String
+    let messageId: String
     let statusType: StatusType
     let datePosted: String?
     let startDate: String
@@ -35,12 +35,6 @@ struct Event: Codable {
     let affectedServices: [String]?
     let eventStatus: EventStatus
     let message: String
-
-    enum CodingKeys: String, CodingKey {
-        case usersAffected, epochStartDate, epochEndDate
-        case messageID = "messageId"
-        case statusType, datePosted, startDate, endDate, affectedServices, eventStatus, message
-    }
 }
 
 enum EventStatus: String, Codable {

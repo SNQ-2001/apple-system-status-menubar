@@ -10,9 +10,12 @@ import Foundation
 
 class APIClient {
     static func fetch<T>(url: URL) -> AnyPublisher<T, Error> where T: Decodable {
-        URLSession.shared.dataTaskPublisher(for: url)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: decoder)
             .receive(on: DispatchQueue.global())
             .eraseToAnyPublisher()
     }
