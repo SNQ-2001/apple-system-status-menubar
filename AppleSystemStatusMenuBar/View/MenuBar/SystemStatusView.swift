@@ -42,11 +42,11 @@ extension SystemStatusView {
     private func preferencesButton() -> some View {
         Label {
             Text("Preferences")
-                .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
+                .foregroundColor(viewModel.isSettingsButtonHover ? .accentColor : .primary)
                 .font(.system(size: 11, weight: .medium, design: .default))
         } icon: {
             Image.slider
-                .foregroundColor(viewModel.isSettingsButtonHover ? .blue : .primary)
+                .foregroundColor(viewModel.isSettingsButtonHover ? .accentColor : .primary)
                 .font(.system(size: 11, weight: .medium, design: .default))
         }
         .onHover { hovering in
@@ -60,7 +60,7 @@ extension SystemStatusView {
     private func quitButton() -> some View {
         Label {
             Text("Quit")
-                .foregroundColor(viewModel.isQuitButtonHover ? .blue : .primary)
+                .foregroundColor(viewModel.isQuitButtonHover ? .accentColor : .primary)
                 .font(.system(size: 11, weight: .medium, design: .default))
         } icon: {}
             .onHover { hovering in

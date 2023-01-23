@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ListLabelStyle: LabelStyle {
     let statusType: StatusType
+
     let eventStatus: EventStatus
+
     let isEvents: Bool
 
     func makeBody(configuration: Configuration) -> some View {
