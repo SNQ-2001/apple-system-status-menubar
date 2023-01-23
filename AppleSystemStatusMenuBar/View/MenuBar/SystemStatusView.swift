@@ -111,6 +111,6 @@ extension SystemStatusView {
             .listStyle(.bordered(alternatesRowBackgrounds: true))
             .navigationTitle(systemType.title)
         }
-        .frame(width: 250, height: 500)
+        .frame(width: 260, height: 500)
     }
 }
