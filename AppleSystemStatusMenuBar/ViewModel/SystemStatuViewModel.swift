@@ -12,6 +12,7 @@ import SwiftUI
 
 final class SystemStatuViewModel: ObservableObject {
     @Published var appleSystemStatus: AppleSystemStatus = .init(services: [])
+    @Published var appleDeveloperSystemStatus: AppleDeveloperSystemStatus = .init(services: [])
     @Published var isSettingsButtonHover: Bool = false
     @Published var isQuitButtonHover: Bool = false
 
@@ -28,7 +29,9 @@ final class SystemStatuViewModel: ObservableObject {
             .sink { [weak self] _ in
                 guard let self else { return }
                 self.appleSystemStatus = .empty
+                self.appleDeveloperSystemStatus = .empty
                 self.getAppleSystemStatus()
+                self.getAppleDeveloperSystemStatus()
             }
             .store(in: &cancellable)
     }
@@ -40,6 +43,17 @@ final class SystemStatuViewModel: ObservableObject {
             .sink { [weak self] appleSystemStatus in
                 guard let self else { return }
                 withAnimation { self.appleSystemStatus = appleSystemStatus }
+            }
+            .store(in: &cancellable)
+    }
+
+    private func getAppleDeveloperSystemStatus() {
+        repository.fetchAppleDeveloperSystemStatus()
+            .receive(on: DispatchQueue.main)
+            .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
+            .sink { [weak self] appleDeveloperSystemStatus in
+                guard let self else { return }
+                withAnimation { self.appleDeveloperSystemStatus = appleDeveloperSystemStatus }
             }
             .store(in: &cancellable)
     }
