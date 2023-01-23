@@ -39,6 +39,7 @@ final class SystemStatuViewModel: ObservableObject {
     private func getAppleSystemStatus() {
         repository.fetchAppleSystemStatus(localeName: localeName)
             .receive(on: DispatchQueue.main)
+            .retry(3)
             .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
             .sink { [weak self] appleSystemStatus in
                 guard let self else { return }
@@ -50,6 +51,7 @@ final class SystemStatuViewModel: ObservableObject {
     private func getAppleDeveloperSystemStatus() {
         repository.fetchAppleDeveloperSystemStatus()
             .receive(on: DispatchQueue.main)
+            .retry(3)
             .replaceError(with: .init(services: [.init(redirectUrl: nil, events: [], serviceName: "Error")]))
             .sink { [weak self] appleDeveloperSystemStatus in
                 guard let self else { return }
