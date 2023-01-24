@@ -1,4 +1,4 @@
-<div style="text-align:center;">
+<div align="center">
     <h1>AppleSystemStatusMenuBar</h1>
     <a href="https://github.com/SNQ-2001/apple-system-status-menubar/issues"><img src="https://img.shields.io/github/issues/SNQ-2001/apple-system-status-menubar"></a>
     <a href="https://github.com/SNQ-2001/apple-system-status-menubar/network/members"><img src="https://img.shields.io/github/forks/SNQ-2001/apple-system-status-menubar"></a>
