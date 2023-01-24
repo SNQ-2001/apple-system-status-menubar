@@ -35,6 +35,7 @@ struct SystemStatusView: View {
             }
             .padding(.all, 7)
         }
+        .background(Color("backgroundColor"))
     }
 }
 
