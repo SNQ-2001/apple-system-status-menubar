@@ -23,6 +23,7 @@
 		1C7230D82965C7760052BFA5 /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D72965C7760052BFA5 /* Image+.swift */; };
 		1C7230DA2965CB360052BFA5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230D92965CB360052BFA5 /* APIClient.swift */; };
 		1C7230DC2965CB410052BFA5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7230DB2965CB410052BFA5 /* Endpoint.swift */; };
+		1C984F21297FB50E006B54EF /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C984F20297FB50E006B54EF /* Assets.swift */; };
 		1CBC39EB296971BB00E1EDB5 /* AppleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */; };
 		1CBC39ED29697D9C00E1EDB5 /* SystemStatuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC39EC29697D9C00E1EDB5 /* SystemStatuViewModel.swift */; };
 		1CBC3A2A296AD06600E1EDB5 /* ListLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */; };
@@ -56,6 +57,7 @@
 		1C7230D72965C7760052BFA5 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
 		1C7230D92965CB360052BFA5 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1C7230DB2965CB410052BFA5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1C984F20297FB50E006B54EF /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1CBC39EA296971BB00E1EDB5 /* AppleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRepository.swift; sourceTree = "<group>"; };
 		1CBC39EC29697D9C00E1EDB5 /* SystemStatuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatuViewModel.swift; sourceTree = "<group>"; };
 		1CBC3A29296AD06600E1EDB5 /* ListLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLabelStyle.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				1C7230D12965C4070052BFA5 /* ViewModel */,
 				1C7230D02965C3FF0052BFA5 /* Model */,
 				1C7230CF2965C3E90052BFA5 /* Extension */,
+				1C984F1F297FB480006B54EF /* Generated */,
 				1C7230CE2965C3D80052BFA5 /* Resource */,
 				1C7230C32965B2980052BFA5 /* Preview Content */,
 			);
@@ -210,6 +213,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		1C984F1F297FB480006B54EF /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1C984F20297FB50E006B54EF /* Assets.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		1CBC3A28296AD01E00E1EDB5 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +261,7 @@
 				1C867B1A29730C5B000D1CF4 /* Build Release */,
 				1CB647E829700F8C009BBCA6 /* Run SwiftLint */,
 				1CE8796829731D7200467930 /* Run SwiftFormat */,
+				1C984F1E297FB43D006B54EF /* Run SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -329,6 +341,25 @@
 			shellPath = /bin/sh;
 			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release\n";
 		};
+		1C984F1E297FB43D006B54EF /* Run SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftGen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\n\nxcrun --sdk macosx swift build -c release \\\n--package-path .build/checkouts/SwiftGen \\\n--product swiftgen\n\n.build/checkouts/SwiftGen/.build/release/swiftgen config run --config $SRCROOT/swiftgen.yml\n";
+		};
 		1CB647E829700F8C009BBCA6 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -400,6 +431,7 @@
 				1CD725A3297451CB00AC5F6A /* LicenseView.swift in Sources */,
 				1C285396297E99F500B16A75 /* AppleDeveloperSystemLocale.swift in Sources */,
 				1CEC3593297C4466005BA12F /* SettingsViewModel.swift in Sources */,
+				1C984F21297FB50E006B54EF /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
