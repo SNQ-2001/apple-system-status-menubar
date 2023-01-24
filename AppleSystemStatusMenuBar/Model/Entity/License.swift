@@ -22,6 +22,10 @@ extension License {
         .init(
             name: "SwiftFormat",
             url: URL(string: "https://github.com/nicklockwood/SwiftFormat")!
+        ),
+        .init(
+            name: "SwiftGen",
+            url: URL(string: "https://github.com/SwiftGen/SwiftGen")!
         )
     ]
 }
