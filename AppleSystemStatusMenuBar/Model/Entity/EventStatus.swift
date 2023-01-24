@@ -15,4 +15,5 @@ enum EventStatus: String, Codable {
     case resolved
     case completed
     case ongoing
+    case upcoming
 }

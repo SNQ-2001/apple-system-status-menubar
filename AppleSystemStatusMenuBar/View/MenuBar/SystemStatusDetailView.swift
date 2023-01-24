@@ -66,7 +66,7 @@ struct SystemStatusDetailView: View {
             if event.affectedServices != nil {
                 section(label: "Services affected") {
                     ForEach(event.affectedServices ?? [], id: \.self) { affectedService in
-                        Text(affectedService).lineLimit(nil)
+                        Text(affectedService ?? "").lineLimit(nil)
                     }
                 }
             }
