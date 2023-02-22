@@ -19,6 +19,8 @@ extension Color {
             return eventStatus == .ongoing ? .yellow : .green
         case .outage:
             return eventStatus == .ongoing ? .red : .green
+        case .performance:
+            return eventStatus == .ongoing ? .yellow : .green
         }
     }
 }

@@ -25,6 +25,8 @@ extension Image {
             return eventStatus == .ongoing ? .diamond : .circle
         case .outage:
             return eventStatus == .ongoing ? .triangle : .circle
+        case .performance:
+            return eventStatus == .ongoing ? .triangle : .circle
         }
     }
 }

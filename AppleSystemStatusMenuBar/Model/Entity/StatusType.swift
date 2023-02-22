@@ -15,4 +15,5 @@ enum StatusType: String, Codable {
     case maintenance = "Maintenance"
     case issue = "Issue"
     case outage = "Outage"
+    case performance = "Performance"
 }
